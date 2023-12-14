@@ -1,0 +1,39 @@
+
+type Video {
+    id : Float,
+    name : String,
+    url : String,
+    description : String,
+    datePublication : String,
+    creator : Creator
+}
+type Creator {
+    id : Float,
+    name : String,
+    email : String
+}
+input CreatorRequest{
+    name : String,
+    email : String
+}
+
+input VideoRequest{
+    name : String,
+    url : String,
+    description : String,
+    datePublication : String,
+    creator : CreatorRequest
+}
+
+
+type Mutation{
+    saveVideo(video: VideoRequest): Video
+    saveCreator(creator: CreatorRequest): Creator
+}
+
+type Query{
+    getByID(id:ID) : Creator
+    getByID(id:ID) : Video
+}
+
+
